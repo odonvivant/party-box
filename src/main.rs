@@ -3,6 +3,7 @@ extern crate rocket;
 extern crate rocket_dyn_templates;
 
 use rocket_dyn_templates::Template;
+use rocket::fs::{FileServer, relative};
 
 mod routes;
 
@@ -10,6 +11,7 @@ mod routes;
 async fn main() {
     let _ = rocket::build()
         .mount("/", routes::get_routes())
+        .mount("/", FileServer::from(relative!("static")))
         .attach(Template::fairing())
         .launch()
         .await.expect("TODO: panic message");

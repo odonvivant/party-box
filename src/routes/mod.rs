@@ -4,7 +4,7 @@ use rocket::Route;
 
 #[get("/")]
 fn index() -> Template {
-    Template::render("base", json!({"greetings":"Hello, World!"}))
+    Template::render("login", json!({"greetings":"Hello, World!"}))
 }
 
 pub fn get_routes() -> Vec<Route> {
