@@ -1,8 +1,10 @@
+use rocket_dyn_templates::Template;
+use rocket::serde::json::json;
 use rocket::Route;
 
 #[get("/")]
-fn index() -> &'static str {
-    "Hello, World!"
+fn index() -> Template {
+    Template::render("base", json!({"greetings":"Hello, World!"}))
 }
 
 pub fn get_routes() -> Vec<Route> {
