@@ -1,6 +1,8 @@
 #[macro_use]
 extern crate rocket;
 extern crate rocket_dyn_templates;
+#[macro_use]
+extern crate dotenv_codegen;
 
 use rocket_dyn_templates::Template;
 use rocket::fs::{FileServer, relative};
