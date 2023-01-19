@@ -1,17 +1,12 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket::routes;
-
-#[get("/")]
-fn index() -> &'static str {
-    "Hello, World!"
-}
+mod routes;
 
 #[rocket::main]
 async fn main() {
     let _ = rocket::build()
-        .mount("/", routes![index])
+        .mount("/", routes::get_routes())
         .launch()
         .await.expect("TODO: panic message");
 }
